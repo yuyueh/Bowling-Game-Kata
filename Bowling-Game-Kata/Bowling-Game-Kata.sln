@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling-Game-Kata", "Bowling-Game-Kata\Bowling-Game-Kata.csproj", "{92A90445-6D8D-4D63-B84A-51A1BDB2648D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92A90445-6D8D-4D63-B84A-51A1BDB2648D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A90445-6D8D-4D63-B84A-51A1BDB2648D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A90445-6D8D-4D63-B84A-51A1BDB2648D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A90445-6D8D-4D63-B84A-51A1BDB2648D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35F8F016-5224-40A8-95BE-1A3340386345}
+	EndGlobalSection
+EndGlobal
