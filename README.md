@@ -43,3 +43,29 @@ A frame has one or two rolls
 The tenth frame has two or three rolls. It's different from all the other frames  
 The score function must iterate through all the frames, and calculate all their scores  
 The score for a spare or a strike depends on the frames successor
+
+## 保齡球比賽
+
+遊戲規則
+
+1. 一場保齡球賽有10局
+2. 前九局每局有兩顆球, 每局有10瓶
+3. 每局共有10個球瓶
+4. 每局的分數為當局擊倒瓶數加上 Bonus
+5. 每局第 1 球全倒稱為 Strike
+6. 每局第 2 球才全倒稱為 spare
+7. 第10局如果有 strike 或 spare 就可以打第3球
+
+Bonus:
+
+1. 本局打 Spare, 則本局的分數等於本局分數加下一球擊倒之瓶數. ex: 本局7+3瓶, 然後下一球打 3 瓶, 則本局分數為[10+3] =13 分
+2. 本局打 Strike, 則 Bonus 為本局分數加上下兩球擊倒之瓶數 ex: 本局 strike, 下兩球分別為 7, 1, 則本局分數為 (10 + 7 + 1) = 18
+3. 第10局沒有 bonus
+
+## 需求
+
+* 開發一個 class "BowlingGame"，包含以下2個方法
+	- *roll(pins)*
+		- 當玩家擲球時呼叫這個方法, 傳入參數是擊倒的瓶數
+	- *score()*
+		- 一局結束時呼叫此方法，返回比賽總分
