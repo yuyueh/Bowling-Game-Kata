@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling-Game-Kata", "Bowling-Game-Kata\Bowling-Game-Kata.csproj", "{92A90445-6D8D-4D63-B84A-51A1BDB2648D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BowlingGameKata", "Bowling-Game-Kata\BowlingGameKata.csproj", "{92A90445-6D8D-4D63-B84A-51A1BDB2648D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{87A529DE-A91C-4ACD-8586-56AB49A05317}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CA5473B5-10AF-449E-B55D-E6A489540855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling-Game-Kata.UnitTests", "Bowling-Game-Kata.UnitTests\Bowling-Game-Kata.UnitTests.csproj", "{23E9E9AB-9D30-40FB-B77B-307761F238D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BowlingGameKata.UnitTests", "Bowling-Game-Kata.UnitTests\BowlingGameKata.UnitTests.csproj", "{23E9E9AB-9D30-40FB-B77B-307761F238D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
