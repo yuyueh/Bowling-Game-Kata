@@ -25,5 +25,24 @@ namespace BowlingGameKata.UnitTests
             // Assert
             Assert.That(result, Is.EqualTo(expect));
         }
+
+        [Test]
+        public void Test_Rolling_One_Pin_Score_One()
+        {
+            // Arrange
+            var expect = 1;
+            var _target = new BowlingGame();
+
+            // Act
+            _target.roll(1);
+            for (int i = 0; i < 19; i++)
+            {
+                _target.roll(0);
+            }
+            var result = _target.score();
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expect));
+        }
     }
 }
