@@ -8,9 +8,9 @@ namespace BowlingGameKata
     {
         private int _score = 0;
 
-        public void roll(int pin)
+        public void roll(int pins)
         {
-            _score += pin;
+            _score += pins;
         }
 
         public int score()

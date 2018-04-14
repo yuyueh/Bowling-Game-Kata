@@ -47,11 +47,11 @@ namespace BowlingGameKata.UnitTests
             Assert.That(result, Is.EqualTo(expect));
         }
 
-        private void RollMany(int count, int pin)
+        private void RollMany(int count, int pins)
         {
             for (int i = 0; i < count; i++)
             {
-                _target.roll(pin);
+                _target.roll(pins);
             }
         }
     }
