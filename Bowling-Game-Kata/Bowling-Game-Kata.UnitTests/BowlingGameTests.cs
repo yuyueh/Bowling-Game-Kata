@@ -47,6 +47,24 @@ namespace BowlingGameKata.UnitTests
             Assert.That(result, Is.EqualTo(expect));
         }
 
+        [Test]
+        public void Test_Rolling_With_Spare()
+        {
+            // Arrange
+            var expect = 14; // ( 5 + 5 ) + 2 + 2 + 0...
+            var _target = new BowlingGame();
+
+            // Act
+            _target.roll(5);
+            _target.roll(5);
+            _target.roll(2);
+            RollMany(17, 0);
+            var result = _target.score();
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expect));
+        }
+
         private void RollMany(int count, int pins)
         {
             for (int i = 0; i < count; i++)
