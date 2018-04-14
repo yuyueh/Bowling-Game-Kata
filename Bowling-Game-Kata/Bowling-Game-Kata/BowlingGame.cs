@@ -6,14 +6,14 @@ namespace BowlingGameKata
 {
     public class BowlingGame
     {
-        public void roll(int v)
+        public void roll(int pin)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public object score()
+        public int score()
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }
