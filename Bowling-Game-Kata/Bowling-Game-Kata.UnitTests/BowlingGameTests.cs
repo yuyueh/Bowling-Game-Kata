@@ -8,6 +8,14 @@ namespace BowlingGameKata.UnitTests
     [TestFixture]
     public class BowlingGameTests
     {
+        BowlingGame _target;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _target = new BowlingGame();
+        }
+
         [Test]
         public void Test_Rolling_Zero_Pin_Score_Zero()
         {
@@ -16,10 +24,7 @@ namespace BowlingGameKata.UnitTests
             var _target = new BowlingGame();
 
             // Act
-            for (int i = 0; i < 20; i++)
-            {
-                _target.roll(0);
-            }
+            RollMany(19, 0);
             var result = _target.score();
 
             // Assert
@@ -35,14 +40,19 @@ namespace BowlingGameKata.UnitTests
 
             // Act
             _target.roll(1);
-            for (int i = 0; i < 19; i++)
-            {
-                _target.roll(0);
-            }
+            RollMany(19, 0);
             var result = _target.score();
 
             // Assert
             Assert.That(result, Is.EqualTo(expect));
+        }
+
+        private void RollMany(int count, int pin)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                _target.roll(pin);
+            }
         }
     }
 }
