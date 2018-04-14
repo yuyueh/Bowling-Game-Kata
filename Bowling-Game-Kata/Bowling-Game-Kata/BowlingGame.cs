@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BowlingGameKata
@@ -8,7 +9,6 @@ namespace BowlingGameKata
     {
         private int[] _rolls = new int[20];
         private int _currentIndex = 0;
-        private int _currentFrame = 0;
         private int _maxFrame = 10;
 
         public void roll(int pins)
@@ -19,23 +19,17 @@ namespace BowlingGameKata
 
         public int score()
         {
-            int _score = 0;
-
-            for (int i = 0; i < _maxFrame; i++)
+            return Enumerable.Range(0, _maxFrame).Select(frame =>
             {
-                if (IsSpare(_currentFrame))
+                if (IsSpare(frame))
                 {
-                    _score += GetFramelScoreWithSpareBonus(_currentFrame);
+                    return GetFramelScoreWithSpareBonus(frame);
                 }
                 else
                 {
-                    _score += GetFrameScore(_currentFrame);
+                    return GetFrameScore(frame);
                 }
-
-                _currentFrame++;
-            }
-
-            return _score;
+            }).Sum();
         }
 
         private bool IsSpare(int frame)
