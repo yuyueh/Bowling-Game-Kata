@@ -13,15 +13,28 @@ namespace BowlingGameKata
 
         public void roll(int pins)
         {
-            _rolls[_currentIndex] = pins;
-            _currentIndex++;
+            if (pins == 10)
+            {
+                _rolls[_currentIndex] = pins;
+                _rolls[_currentIndex + 1] = 0;
+                _currentIndex += 2;
+            }
+            else
+            {
+                _rolls[_currentIndex] = pins;
+                _currentIndex++;
+            }
         }
 
         public int score()
         {
             return Enumerable.Range(0, _maxFrame).Select(frame =>
             {
-                if (IsSpare(frame))
+                if (IsStrike(frame))
+                {
+                    return GetFramelScoreWithStrikeBonus(frame);
+                }
+                else if (IsSpare(frame))
                 {
                     return GetFramelScoreWithSpareBonus(frame);
                 }
@@ -30,6 +43,11 @@ namespace BowlingGameKata
                     return GetFrameScore(frame);
                 }
             }).Sum();
+        }
+
+        private bool IsStrike(int frame)
+        {
+            return _rolls[frame * 2] == 10;
         }
 
         private bool IsSpare(int frame)
@@ -45,6 +63,11 @@ namespace BowlingGameKata
         private int GetFramelScoreWithSpareBonus(int frame)
         {
             return _rolls[frame * 2] + _rolls[frame * 2 + 1] + _rolls[frame * 2 + 2];
+        }
+
+        private int GetFramelScoreWithStrikeBonus(int frame)
+        {
+            return 10 + _rolls[frame * 2 + 2] + _rolls[frame * 2 + 3];
         }
     }
 }
