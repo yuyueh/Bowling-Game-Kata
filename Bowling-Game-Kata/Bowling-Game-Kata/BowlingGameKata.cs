@@ -6,14 +6,16 @@ namespace BowlingGameKata
 {
     public class BowlingGameKata
     {
+        int _score = 0;
+
         public void roll(int v)
         {
-            
+            _score += v;
         }
 
         public object score()
         {
-            return 0;
+            return _score;
         }
     }
 }
