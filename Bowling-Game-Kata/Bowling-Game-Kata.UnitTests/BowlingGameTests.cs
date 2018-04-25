@@ -7,18 +7,22 @@ namespace BowlingGameKata.UnitTests
 {
     public class BowlingGameTests
     {
+        private BowlingGameKata _target;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _target = new BowlingGameKata();
+        }
+
         [Test]
         public void Test_GattaGame()
         {
             // arrange
-            var _target = new BowlingGameKata();
             var except = 0;
 
             // act
-            for (int i = 0; i < 20; i++)
-            {
-                _target.roll(0);
-            }
+            RollMany(20, 0);
 
             var result = _target.score();
 
@@ -30,14 +34,10 @@ namespace BowlingGameKata.UnitTests
         public void Test_Roll_All_One()
         {
             // arrange
-            var _target = new BowlingGameKata();
             var except = 20;
 
             // act
-            for (int i = 0; i < 20; i++)
-            {
-                _target.roll(1);
-            }
+            RollMany(20, 1);
 
             var result = _target.score();
 
@@ -49,19 +49,23 @@ namespace BowlingGameKata.UnitTests
         public void Test_Perfect_Game()
         {
             // arrange
-            var _target = new BowlingGameKata();
             var except = 300;
 
             // act
-            for (int i = 0; i < 12; i++)
-            {
-                _target.roll(10);
-            }
+            RollMany(12, 10);
 
             var result = _target.score();
 
             // assert
             Assert.That(result, Is.EqualTo(except));
+        }
+
+        private void RollMany(int count, int pins)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                _target.roll(pins);
+            }
         }
     }
 }
