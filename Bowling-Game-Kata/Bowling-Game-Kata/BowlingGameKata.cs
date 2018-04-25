@@ -21,19 +21,34 @@ namespace BowlingGameKata
 
             for (int frame = 0; frame < totalFrame; frame++)
             {
-                if (balls[currentBall] == 10)
+                if (IsStrike(currentBall))
                 {
-                    result += 10 + balls[currentBall + 1] + balls[currentBall + 2];
+                    result += 10 + GetStrikeBonus(currentBall);
                     currentBall++;
                 }
                 else
                 {
-                    result += balls[currentBall] + balls[currentBall + 1];
+                    result += GetFrameScore(currentBall);
                     currentBall += 2;
                 }
             }
 
             return result;
+        }
+
+        private bool IsStrike(int currentBall)
+        {
+            return balls[currentBall] == 10;
+        }
+
+        private int GetStrikeBonus(int currentBall)
+        {
+            return balls[currentBall + 1] + balls[currentBall + 2];
+        }
+
+        private int GetFrameScore(int currentBall)
+        {
+            return balls[currentBall] + balls[currentBall + 1];
         }
     }
 }
