@@ -26,6 +26,11 @@ namespace BowlingGameKata
                     result += 10 + GetStrikeBonus(currentBall);
                     currentBall++;
                 }
+                else if (IsSpare(currentBall))
+                {
+                    result += 10 + GetSpareBonus(currentBall);
+                    currentBall += 2;
+                }
                 else
                 {
                     result += GetFrameScore(currentBall);
@@ -44,6 +49,16 @@ namespace BowlingGameKata
         private int GetStrikeBonus(int currentBall)
         {
             return balls[currentBall + 1] + balls[currentBall + 2];
+        }
+
+        private bool IsSpare(int currentBall)
+        {
+            return balls[currentBall] + balls[currentBall + 1] == 10;
+        }
+
+        private int GetSpareBonus(int currentBall)
+        {
+            return balls[currentBall + 2];
         }
 
         private int GetFrameScore(int currentBall)
