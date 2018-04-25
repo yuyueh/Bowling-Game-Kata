@@ -25,5 +25,24 @@ namespace BowlingGameKata.UnitTests
             // assert
             Assert.That(result, Is.EqualTo(except));
         }
+
+        [Test]
+        public void Test_Roll_All_One()
+        {
+            // arrange
+            var _target = new BowlingGameKata();
+            var except = 20;
+
+            // act
+            for (int i = 0; i < 20; i++)
+            {
+                _target.roll(1);
+            }
+
+            var result = _target.score();
+
+            // assert
+            Assert.That(result, Is.EqualTo(except));
+        }
     }
 }
