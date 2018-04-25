@@ -19,7 +19,7 @@ namespace BowlingGameKata.UnitTests
         public void Test_GattaGame()
         {
             // arrange
-            var except = 0;
+            var expect = 0;
 
             // act
             RollMany(20, 0);
@@ -27,14 +27,14 @@ namespace BowlingGameKata.UnitTests
             var result = _target.score();
 
             // assert
-            Assert.That(result, Is.EqualTo(except));
+            Assert.That(result, Is.EqualTo(expect));
         }
 
         [Test]
         public void Test_Roll_All_One()
         {
             // arrange
-            var except = 20;
+            var expect = 20;
 
             // act
             RollMany(20, 1);
@@ -42,14 +42,14 @@ namespace BowlingGameKata.UnitTests
             var result = _target.score();
 
             // assert
-            Assert.That(result, Is.EqualTo(except));
+            Assert.That(result, Is.EqualTo(expect));
         }
 
         [Test]
         public void Test_Perfect_Game()
         {
             // arrange
-            var except = 300;
+            var expect = 300;
 
             // act
             RollMany(12, 10);
@@ -57,7 +57,24 @@ namespace BowlingGameKata.UnitTests
             var result = _target.score();
 
             // assert
-            Assert.That(result, Is.EqualTo(except));
+            Assert.That(result, Is.EqualTo(expect));
+        }
+
+        [Test]
+        public void Test_One_Spare()
+        {
+            // arrange
+            var expect = 14; // ( 5 + 5 ) + 2 + 2 + 0...
+
+            // act
+            RollMany(2, 5);
+            _target.roll(2);
+            RollMany(17, 0);
+
+            var result = _target.score();
+
+            // assert
+            Assert.That(result, Is.EqualTo(expect));
         }
 
         private void RollMany(int count, int pins)
