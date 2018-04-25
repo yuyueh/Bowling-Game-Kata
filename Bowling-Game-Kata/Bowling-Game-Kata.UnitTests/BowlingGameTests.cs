@@ -53,7 +53,7 @@ namespace BowlingGameKata.UnitTests
             var except = 300;
 
             // act
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 12; i++)
             {
                 _target.roll(10);
             }
