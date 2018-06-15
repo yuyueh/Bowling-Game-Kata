@@ -41,6 +41,24 @@ namespace BowlingGameKata.UnitTests
             Assert.AreEqual(result, expected);
         }
 
+        [Test]
+        public void Test_RollOneSpare()
+        {
+            // Arrange
+            var expected = 17; // (5 + 5 + 2) + 2 + 3
+
+            // Act
+            _target.Roll(5);
+            _target.Roll(5);
+            _target.Roll(2);
+            _target.Roll(3);
+            RollMany(16, 0);
+            var result = _target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
+
         private void RollMany(int rollTimes, int pins)
         {
             for (int i = 0; i < rollTimes; i++)
