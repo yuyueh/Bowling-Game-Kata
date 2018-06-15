@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace BowlingGameKata.UnitTests
 {
     public class BowlingGameTests
     {
+
+        private BowlingGame _target;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _target = new BowlingGame();
+        }
+
         [Test]
         public void Test_GutterGame()
         {
             // Arrange
-            var target = new BowlingGame();
             var expected = 0;
 
             // Act
-            for (int i = 0; i < 20; i++)
-            {
-                target.Roll(0);
-            }
-            var result = target.Score();
+            RollMany(20, 0);
+            var result = _target.Score();
 
             // Assert
             Assert.AreEqual(result, expected);
@@ -29,18 +31,22 @@ namespace BowlingGameKata.UnitTests
         public void Test_RollAllOne()
         {
             // Arrange
-            var target = new BowlingGame();
             var expected = 20;
 
             // Act
-            for (int i = 0; i < 20; i++)
-            {
-                target.Roll(1);
-            }
-            var result = target.Score();
+            RollMany(20, 1);
+            var result = _target.Score();
 
             // Assert
             Assert.AreEqual(result, expected);
+        }
+
+        private void RollMany(int rollTimes, int pins)
+        {
+            for (int i = 0; i < rollTimes; i++)
+            {
+                _target.Roll(pins);
+            }
         }
     }
 }
