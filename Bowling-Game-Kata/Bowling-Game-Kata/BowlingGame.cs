@@ -4,7 +4,7 @@ namespace BowlingGameKata
 {
     public class BowlingGame
     {
-        private List<int> _rolls;
+        private readonly List<int> _rolls;
 
         public BowlingGame()
         {
@@ -23,24 +23,49 @@ namespace BowlingGameKata
 
             for (int frame = 0; frame < 10; frame++)
             {
-                if (_rolls[currentRoll] == 10)
+                if (IsStrike(currentRoll))
                 {
-                    result += 10 + _rolls[currentRoll + 1] + _rolls[currentRoll + 2];
+                    result += 10 + GetStrikeBonus(currentRoll);
                     currentRoll++;
                 }
-                else if (_rolls[currentRoll] + _rolls[currentRoll + 1] == 10)
+                else if (IsSpare(currentRoll))
                 {
-                    result += 10 + _rolls[currentRoll + 2];
+                    result += 10 + GetSpareBonus(currentRoll);
                     currentRoll += 2;
                 }
                 else
                 {
-                    result += _rolls[currentRoll] + _rolls[currentRoll + 1];
+                    result += GetNormalScore(currentRoll);
                     currentRoll += 2;
                 }
             }
 
             return result;
+        }
+
+        private int GetNormalScore(int currentRoll)
+        {
+            return _rolls[currentRoll] + _rolls[currentRoll + 1];
+        }
+
+        private int GetSpareBonus(int currentRoll)
+        {
+            return _rolls[currentRoll + 2];
+        }
+
+        private int GetStrikeBonus(int currentRoll)
+        {
+            return _rolls[currentRoll + 1] + _rolls[currentRoll + 2];
+        }
+
+        private bool IsSpare(int currentRoll)
+        {
+            return _rolls[currentRoll] + _rolls[currentRoll + 1] == 10;
+        }
+
+        private bool IsStrike(int currentRoll)
+        {
+            return _rolls[currentRoll] == 10;
         }
     }
 }
