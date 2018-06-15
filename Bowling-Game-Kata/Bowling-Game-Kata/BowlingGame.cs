@@ -23,7 +23,12 @@ namespace BowlingGameKata
 
             for (int frame = 0; frame < 10; frame++)
             {
-                if (_rolls[currentRoll] + _rolls[currentRoll + 1] == 10)
+                if (_rolls[currentRoll] == 10)
+                {
+                    result += 10 + _rolls[currentRoll + 1] + _rolls[currentRoll + 2];
+                    currentRoll++;
+                }
+                else if (_rolls[currentRoll] + _rolls[currentRoll + 1] == 10)
                 {
                     result += 10 + _rolls[currentRoll + 2];
                     currentRoll += 2;
