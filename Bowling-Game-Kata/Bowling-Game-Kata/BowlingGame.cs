@@ -2,14 +2,16 @@
 {
     public class BowlingGame
     {
+        private int _score;
+
         public int Score()
         {
-            return 0;
+            return _score;
         }
 
-        public void Roll(int i)
+        public void Roll(int pins)
         {
-            
+            _score += pins;
         }
     }
 }
