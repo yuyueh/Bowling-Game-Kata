@@ -52,6 +52,7 @@ namespace BowlingGameKata.UnitTests
             _target.Roll(5);
             _target.Roll(2);
             _target.Roll(3);
+            RollMany(16, 0);
             var result = _target.Score();
 
             // Assert
