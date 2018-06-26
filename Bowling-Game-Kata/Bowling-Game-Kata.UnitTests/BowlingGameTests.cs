@@ -34,15 +34,30 @@ namespace BowlingGameKata.UnitTests
             var expected = 20;
 
             // Act
-            for (int i = 0; i < 20; i++)
-            {
-                _target.Roll(1);
-            }
+            RollMany(20, 1);
             var result = _target.Score();
 
             // Assert
             Assert.AreEqual(result, expected);
         }
+
+        [Test]
+        public void Test_OneSpare()
+        {
+            // Arrange
+            var expected = 17; //(5 + 5 + 2) + 2 + 3
+
+            // Act
+            _target.Roll(5);
+            _target.Roll(5);
+            _target.Roll(2);
+            _target.Roll(3);
+            var result = _target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
+
         private void RollMany(int rollTimes, int pins)
         {
             for (int i = 0; i < rollTimes; i++)
